@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Constante</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ constante.id }}</td>
+            </tr>
+            <tr>
+                <th>Takendate</th>
+                <td>{% if constante.takenDate %}{{ constante.takenDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Poid</th>
+                <td>{{ constante.poid }}</td>
+            </tr>
+            <tr>
+                <th>Taille</th>
+                <td>{{ constante.taille }}</td>
+            </tr>
+            <tr>
+                <th>Pas</th>
+                <td>{{ constante.pas }}</td>
+            </tr>
+            <tr>
+                <th>Pad</th>
+                <td>{{ constante.pad }}</td>
+            </tr>
+            <tr>
+                <th>Pouls</th>
+                <td>{{ constante.pouls }}</td>
+            </tr>
+            <tr>
+                <th>Temp</th>
+                <td>{{ constante.temp }}</td>
+            </tr>
+            <tr>
+                <th>Glycemie</th>
+                <td>{{ constante.glycemie }}</td>
+            </tr>
+            <tr>
+                <th>Cholest</th>
+                <td>{{ constante.cholest }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('constante_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('constante_edit', { 'id': constante.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

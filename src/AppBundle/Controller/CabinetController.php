@@ -15,11 +15,16 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 
+/**
+ * Cabinet controller.
+ *
+ * @Route("Cabinet")
+ */
 class CabinetController extends Controller
 {
 
     /**
-     * @Route("/cabinet/create", name="addcabinet")
+     * @Route("/create", name="addcabinet")
      */
     public function indexAction(Request $request)
     {
@@ -29,7 +34,7 @@ class CabinetController extends Controller
 
 
     /**
-     * @Route("/cabinet/subcabinet", name="subcabinet")
+     * @Route("/subcabinet", name="subcabinet")
      *
      */
     public function addAction(Request $request)
@@ -94,6 +99,18 @@ class CabinetController extends Controller
 
         return $this->render('cabinet/create.html.twig');
     }
+    /**
+     * @Route("/details", name="Cabinet_details")
+     */
+    public function detailsAction(){
+        $user = $this->getUser()->getId();
+        $Cabinets = $this->getDoctrine()
+            ->getRepository('AppBundle:Cabinet')
+            ->findOneBy(array('user_id' => $user));
+        return $this->render(':cabinet:detail.html.twig', array(
+            'Cabinets' => $Cabinets
 
+        ));
+    }
 
 }

@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Constantes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Takendate</th>
+                <th>Poid</th>
+                <th>Taille</th>
+                <th>Pas</th>
+                <th>Pad</th>
+                <th>Pouls</th>
+                <th>Temp</th>
+                <th>Glycemie</th>
+                <th>Cholest</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for constante in constantes %}
+            <tr>
+                <td><a href="{{ path('constante_show', { 'id': constante.id }) }}">{{ constante.id }}</a></td>
+                <td>{% if constante.takenDate %}{{ constante.takenDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ constante.poid }}</td>
+                <td>{{ constante.taille }}</td>
+                <td>{{ constante.pas }}</td>
+                <td>{{ constante.pad }}</td>
+                <td>{{ constante.pouls }}</td>
+                <td>{{ constante.temp }}</td>
+                <td>{{ constante.glycemie }}</td>
+                <td>{{ constante.cholest }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('constante_show', { 'id': constante.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('constante_edit', { 'id': constante.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('constante_new') }}">Create a new constante</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -26,10 +26,10 @@
             </div>
         {% endfor %}
         <div class="panel panel-default">
-            <div class="panel-heading">Liste de Patients</div>
+            <div class="panel-heading">Liste de Contact</div>
             <div class="panel-body">
-                <a href="{{ path('addPatient') }}" class="btn btn-primary btn-lg active" role="button"
-                   aria-pressed="true">Ajouter un Patient</a>
+                <a href="{{ path('RenderContact') }}" class="btn btn-primary btn-lg active" role="button"
+                   aria-pressed="true">Ajouter un Contact</a>
                 <div class="bootstrap-table">
                     <div class="table-container">
                         <div class="table-header">
@@ -44,26 +44,24 @@
                                    data-sort-order="desc" class="table table-hover">
                                 <thead>
                                 <tr>
-                                    <th>Gérer le Patient</th>
-                                    <th>Patient ID</th>
-                                    <th>Nom de Patient</th>
-                                    <th>Prenmon de Patient</th>
-                                    <th>Date de naissance de Patient</th>
-                                    <th>Sexe de Patient</th>
-                                    <th>Matricule de Patient</th>
-                                    <th>Assurance de Patient</th>
-                                    <th>Adresse E-mail de Patient</th>
-                                    <th>Etat civil de Patient<</th>
-                                    <th>Fonction de Patient</th>
-                                    <th>Téléphone Portable de Patient</th>
-                                    <th>Téléphone Fix de Patient</th>
-                                    <th>Adresse De Patient</th>
-                                    <th>Remarque sur le Patient</th>
+                                    <th>Gérer le Contact</th>
+                                    <th>Contact ID</th>
+                                    <th>Nom de Contact</th>
+                                    <th>prenom de Contact</th>
+                                    <th>Specialite de Contact </th>
+                                    <th>Type de Contact </th>
+                                    <th>Pays</th>
+                                    <th>Ville de Contact :</th>
+                                    <th>Téléphone Fix 1 de Contact </th>
+                                    <th>Téléphone Fix 2 de Contact <</th>
+                                    <th>Téléphone Fax de Contact </th>
+                                    <th>Adresse E-mail de Contact </th>
+
 
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {% for patient in Patients %}
+                                {% for contact in contacts %}
                                     <tr>
                                         <td>
                                             <div class="btn-group dropup">
@@ -74,28 +72,26 @@
                                                     <span class="sr-only">Toggle Dropdown</span>
                                                 </button>
                                                 <ul class="dropdown-menu" role="menu">
-                                                    <li><a href="/Patient/details/{{ patient.id }}">View </a></li>
-                                                    <li><a href="/Patient/edit/{{ patient.id }}">Edit </a>
+                                                    <li><a href="/Patient/details/{{ contact.id }}">View </a></li>
+                                                    <li><a href="/Patient/edit/{{ contact.id }}">Edit </a>
                                                     </li>
-                                                    <li><a href="/Patient/delete/{{ patient.id }}">Delete </a>
+                                                    <li><a href="/Patient/delete/{{ contact.id }}">Delete </a>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </td>
-                                        <td>{{ patient.id }}</td>
-                                        <td>{{ patient.name }}</td>
-                                        <td>{{ patient.lastName }}</td>
-                                        <td>{{ patient.birthdate|date('F j, Y') }}</td>
-                                        <td>{{ patient.sexe }}</td>
-                                        <td>{{ patient.matricule }}</td>
-                                        <td>{{ patient.assurance }}</td>
-                                        <td>{{ patient.addressMail }}</td>
-                                        <td>{{ patient.etatCiv }}</td>
-                                        <td>{{ patient.fonction }}</td>
-                                        <td>{{ patient.telPortable }}</td>
-                                        <td>{{ patient.telFix }}</td>
-                                        <td>{{ patient.adresse }}</td>
-                                        <td>{{ patient.remarques }}</td>
+                                        <td>{{ contact.id }}</td>
+                                        <td>{{ contact.nom }}</td>
+                                        <td>{{ contact.prenom }}</td>
+                                        <td>{{ contact.specialite}}</td>
+                                        <td>{{ contact.type }}</td>
+                                        <td>{{ contact.pays }}</td>
+                                        <td>{{ contact.ville }}</td>
+                                        <td>{{ contact.tel }}</td>
+                                        <td>{{ contact.tel2 }}</td>
+                                        <td>{{ contact.fax }}</td>
+                                        <td>{{ contact.email }}</td>
+
 
                                     </tr>
                                 {% endfor %}

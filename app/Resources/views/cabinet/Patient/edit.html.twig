@@ -2,6 +2,7 @@
 {% block stylesheet %}
 {% endblock %}
 {% block body %}
+
     <div class="row">
         <ol class="breadcrumb">
             <li><a href="#">
@@ -14,7 +15,7 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Ajouter un Patient</h1>
+            <h1 class="page-header">Edité un Patient</h1>
         </div>
     </div>
 
@@ -26,24 +27,24 @@
 
                     <div class="col-md-12">
 
-                        <form role="form" method="post" action="{{ path('subPatient') }}">
+                        <form role="form" method="post" action="{{ path('Patient_edit', {'id': patient.id }) }}">
                             <div class="panel panel-default">
                                 <div class="panel-body">
 
                                     <div class="form-group col-md-6">
                                         <label>Nom de Patient :</label>
-                                        <input class="form-control" name ="name" id ="name" minlength="2" required >
+                                        <input value="{{ patient ? patient.name  }}" class="form-control" name ="name" id ="name" minlength="2" required >
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label>Prenmon de Patient :</label>
-                                        <input class="form-control" name ="lastName" id ="lastName" minlength="2" required>
+                                        <input value="{{ patient ? patient.lastName }}" class="form-control" name ="lastName" id ="lastName" minlength="2" required>
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label>Date de naissance de Patient :</label>
                                         <div class="input-group date " data-provide="datepicker">
-                                            <input class="form-control" type="text" name ="birthdate" id ="birthdate" required >
+                                            <input  value="{{ patient ? patient.birthdate|date('Y-m-d') }}" class="form-control" type="text" name ="birthdate" id ="birthdate" required >
                                             <div class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"></span>
                                             </div>
@@ -53,7 +54,7 @@
 
                                     <div class="form-group col-md-6">
                                         <label>Sexe de Patient :</label>
-                                        <select class="form-control" name ="sexe" id ="sexe" >
+                                        <select value="{{ patient ? patient.sexe }}" class="form-control" name ="sexe" id ="sexe" >
                                             <option>Homme</option>
                                             <option>Femme</option>
                                         </select>
@@ -62,22 +63,22 @@
 
                                     <div class="form-group col-md-6">
                                         <label>Matricule de Patient :</label>
-                                        <input class="form-control" name ="matricule" id ="matricule" placeholder="Placeholder" required>
+                                        <input value="{{ patient ? patient.matricule }}" class="form-control" name ="matricule" id ="matricule" placeholder="Placeholder" required>
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label>Assurance de Patient :</label>
-                                        <input class="form-control" name ="assurance" id ="assurance" placeholder="Placeholder" required>
+                                        <input value="{{ patient ? patient.assurance }}" class="form-control" name ="assurance" id ="assurance" placeholder="Placeholder" required>
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label>Adresse E-mail de Patient :</label>
-                                        <input class="form-control" name ="addressMail" id ="addressMail" placeholder="Placeholder" required>
+                                        <input value="{{ patient ? patient.adresse }}" class="form-control" name ="addressMail" id ="addressMail" placeholder="Placeholder" required>
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label>Etat civil de Patient :</label>
-                                        <select class="form-control" name ="etatCiv" id ="etatCiv">
+                                        <select value="{{ patient ? patient.etatCiv }}" class="form-control" name ="etatCiv" id ="etatCiv">
                                             <option>Celibataire</option>
                                             <option>Marié</option>
                                             <option>Divorcé</option>
@@ -87,18 +88,22 @@
 
                                     <div class="form-group col-md-6">
                                         <label>Fonction de Patient :</label>
-                                        <input class="form-control" name ="fonction" id ="fonction" placeholder="Placeholder" required>
+                                        <input value="{{ patient ? patient.fonction }}" class="form-control" name ="fonction" id ="fonction" placeholder="Placeholder" required>
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label>Téléphone Portable de Patient :</label>
-                                        <input class="form-control" name ="telPortable" id ="telPortable" placeholder="Placeholder" required>
+                                        <input value="{{ patient ? patient.telPortable }}" class="form-control" name ="telPortable" id ="telPortable" placeholder="Placeholder" required>
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label>Téléphone Fix de Patient :</label>
-                                        <input class="form-control" name ="telFix" id ="telFix" placeholder="Placeholder" required>
+                                        <input value="{{ patient ? patient.telFix }}" class="form-control" name ="telFix" id ="telFix" placeholder="Placeholder" required>
                                     </div>
+                                    {#<div class="form-group">#}
+                                        {#<input class="hidden" name="idp" id="idp" value="{{ patient ? patient.id }}">#}
+                                    {#</div>#}
+
 
                                 </div>
                             </div>
@@ -108,7 +113,7 @@
                                 <div class="panel-body">
                                     <div class="form-group ">
                                         <label>Adresse De Patient :</label>
-                                        <textarea class="form-control" name ="adresse" id ="adresse" placeholder="Placeholder" required></textarea>
+                                        <textarea  class="form-control" name ="adresse" id ="adresse"  required>{{ patient ? patient.adresse }}</textarea>
                                     </div>
 
                                 </div>
@@ -118,19 +123,19 @@
                                 <div class="panel-body">
                                     <div class="form-group">
                                         <label>Remarque sur le Patient :</label>
-                                        <textarea class="form-control" name ="remarques" id ="remarques" placeholder="Placeholder" required></textarea>
+                                        <textarea class="form-control" name ="remarques" id ="remarques" required>{{ patient ? patient.remarques }}</textarea>
                                     </div>
 
-                            </div>
-                            </div>
-                            <div class="panel panel-default col-md-6">
-                                <div class="panel-heading"></div>
-                                <div class="panel-body">
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-primary">ajouter un Patient</button>
-                                    </div>
                                 </div>
                             </div>
+                                <div class="panel panel-default col-md-6">
+                                    <div class="panel-heading"></div>
+                                    <div class="panel-body">
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary">Enregistre</button>
+                                        </div>
+                                    </div>
+                                </div>
                         </form>
                     </div>
                 </div>

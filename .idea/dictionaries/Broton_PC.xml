@@ -4,20 +4,27 @@
       <w>addon</w>
       <w>adresse</w>
       <w>banque</w>
+      <w>birthdate</w>
       <w>cnam</w>
+      <w>constante</w>
       <w>datepicker</w>
       <w>docteur</w>
       <w>easypiechart</w>
+      <w>etat</w>
       <w>exercice</w>
       <w>flagstrap</w>
+      <w>fonction</w>
       <w>formhelpers</w>
       <w>glyphicon</w>
       <w>jour</w>
+      <w>matricule</w>
       <w>naissance</w>
       <w>periode</w>
       <w>portaire</w>
       <w>registre</w>
+      <w>remarques</w>
       <w>selectbox</w>
+      <w>sexe</w>
       <w>sortant</w>
       <w>sortnat</w>
       <w>specialite</w>

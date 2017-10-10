@@ -1,0 +1,228 @@
+{% extends 'base.html.twig' %}
+{% block stylesheet %}
+    <link href="{{ asset('templates/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('templates/css/font-awesome.min.css') }}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+<div class="row">
+    <ol class="breadcrumb">
+        <li><a href="#">
+                <svg class="glyph stroked home">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#stroked-home"></use>
+                </svg>
+            </a></li>
+        <li class="active">Icons</li>
+    </ol>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header"><strong>Detail De Cabinet</strong></h1>
+    </div>
+</div>
+<div class="panel panel-success col-md-12">
+
+    <div class="panel-heading">
+
+        <a data-toggle="collapse" href="#collapse1"><h3 class=" text-center ">Cabinet de
+                <strong>Dr. {{ Cabinets.nomDocteur }}</strong></h3></a></div>
+    <div id="collapse1" class="panel-collapse collapse">
+        <div class="panel-body">
+
+            <div class="col-md-6">
+                <h5><strong>Nom de Docteur :</strong></h5>
+            </div>
+            <div class="col-md-6">
+                <h5>{{ Cabinets.nomDocteur }}</h5>
+            </div>
+
+
+            <div class="col-md-6">
+                <h5><strong>Specialité de Docteur :</strong></h5>
+            </div>
+            <div class="col-md-6">
+                <h5>{{ Cabinets.specialite }}</h5>
+            </div>
+
+
+            <div class="col-md-6">
+                <h5><strong>Debut d'exercice :</strong></h5>
+            </div>
+            <div class="col-md-6">
+                <h5>{{ Cabinets.debutExercice|date('F j, Y') }}</h5>
+            </div>
+
+
+            <div class="col-md-6">
+                <h5><strong>Fin d'exercice :</strong></h5>
+            </div>
+            <div class="col-md-6">
+                <h5>{{ Cabinets.finExercice|date('F j, Y') }}</h5>
+            </div>
+
+
+            <div class="col-md-6">
+                <h5><strong>Debut Periode :</strong></h5>
+            </div>
+            <div class="col-md-6">
+                <h5>{{ Cabinets.debutPeriode|date('F j, Y') }}</h5>
+            </div>
+
+
+            <div class="col-md-6">
+                <h5><strong>Fin Periode :</strong></h5>
+            </div>
+            <div class="col-md-6">
+                 <h5>{{ Cabinets.finPeriode|date('F j, Y') }}</h5>
+            </div>
+
+
+            <div class="col-md-6">
+                <h5><strong>Code CNAM :</strong></h5>
+            </div>
+            <div class="col-md-6">
+                <h5>{{ Cabinets.codeCnam }}</h5>
+            </div>
+
+
+            <div class="col-md-6">
+                <h5><strong>Registre De de Commerce :</strong></h5>
+            </div>
+            <div class="col-md-6">
+                <h5>{{ Cabinets.registreDeCommerce }}</h5>
+            </div>
+
+
+            <div class="col-md-6">
+                <h5><strong>Code TVA :</strong></h5>
+            </div>
+            <div class="col-md-6">
+                <h5>{{ Cabinets.codeTVA }}</h5>
+            </div>
+
+
+            <div class="col-md-6">
+                <h5><strong>Unite :</strong></h5>
+            </div>
+            <div class="col-md-6">
+                <h5>{{ Cabinets.unite }}</h5>
+            </div>
+
+
+            <div class="col-md-6">
+                <h5><strong>Nb Décimal :</strong></h5>
+            </div>
+            <div class="col-md-6">
+                <h5>{{ Cabinets.nmbDecimal }}</h5>
+            </div>
+
+
+            <div class="col-md-6">
+                <h5><strong>Nomber de Jour avant l'échance des Cheques de traite entrant :</strong></h5>
+            </div>
+            <div class="col-md-6">
+                <h5>{{ Cabinets.nmbJourAvnEchChequeEntrant }}</h5>
+            </div>
+
+
+            <div class="col-md-6">
+                <h5><strong>Nomber de Jour avant l'échance des Cheques de traite sortant :</strong></h5>
+            </div>
+            <div class="col-md-6">
+                <h5>{{ Cabinets.nmbJourAvnEchChequeSortnat }}</h5>
+            </div>
+
+
+            <div class="col-md-6">
+                <h5><strong>Adresse :</strong></h5>
+            </div>
+            <div class="col-md-6">
+                <h5>{{ Cabinets.adresse }}</h5>
+            </div>
+
+
+            <div class="col-md-6">
+                <h5><strong>Pays :</strong></h5>
+            </div>
+            <div class="col-md-6">
+                <h5>{{ Cabinets.pays }}</h5>
+            </div>
+
+
+            <div class="col-md-6">
+                <h5><strong>Fax :</strong></h5>
+            </div>
+            <div class="col-md-6">
+                <h5>{{ Cabinets.fax }}</h5>
+            </div>
+
+            <div class="col-md-6">
+                <h5><strong>Email :</strong></h5>
+            </div>
+            <div class="col-md-6">
+                <h5> {{ Cabinets.email }}</h5>
+            </div>
+
+            <div class="col-md-6">
+                <h5><strong>Site Web :</strong></h5>
+            </div>
+            <div class="col-md-6">
+                <h5> {{ Cabinets.web }}</h5>
+            </div>
+
+
+            <div class="col-md-6">
+                <h5><strong>Telephone :</strong></h5>
+            </div>
+            <div class="col-md-6">
+                <h5> {{ Cabinets.tel }}</h5>
+            </div>
+
+
+            <div class="col-md-6">
+                <h5><strong>Ind Telephone :</strong></h5>
+            </div>
+            <div class="col-md-6">
+                <h5> {{ Cabinets.indTel }}</h5>
+            </div>
+
+
+            <div class="col-md-6">
+                <h5><strong>Banque :</strong></h5>
+            </div>
+            <div class="col-md-6">
+                <h5> {{ Cabinets.banque }}</h5>
+            </div>
+
+
+            <div class="col-md-6">
+                <h5><strong>Nom de Portaire :</strong></h5>
+            </div>
+            <div class="col-md-6">
+                <h5> {{ Cabinets.nomDePortaire }}</h5>
+            </div>
+
+
+            <div class="col-md-6">
+                <h5><strong>RIP :</strong></h5>
+            </div>
+            <div class="col-md-6">
+                <h5> {{ Cabinets.rIP }}</h5>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block javascript %}
+    <script src="{{ asset('templates/js/bootstrap-table.js') }}"></script>
+    <script src="{{ asset('templates/js/moment.min.js') }}"></script>
+    <script src="{{ asset('templates/js/bootstrap-datetimepicker.min.js') }}"></script>
+    <script src="{{ asset('templates/js/bootstrap-table.js') }}"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker1').datetimepicker({format: 'YYYY-MM-DD HH:mm:ss'});
+        });
+    </script>
+{% endblock %}

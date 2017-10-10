@@ -1,0 +1,138 @@
+{% extends 'base.html.twig' %}
+{% block stylesheet %}
+{% endblock %}
+{% block body %}
+    <div class="row">
+        <ol class="breadcrumb">
+            <li><a href="#">
+                    <svg class="glyph stroked home">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#stroked-home"></use>
+                    </svg>
+                </a></li>
+            <li class="active">Icons</li>
+        </ol>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Ajouter un Contact</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+
+                    <div class="col-md-12">
+
+                        <form role="form" method="post" action="{{ path('Contact_new') }}">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+
+                                    <div class="form-group col-md-6">
+                                        <label>Nom de Contact :</label>
+                                        <input class="form-control" name ="nom" id ="nom" minlength="2" required >
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label>Prenmon de Contact :</label>
+                                        <input class="form-control" name ="prenom" id ="prenom" minlength="2" required>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label>Specialite de Contact :</label>
+                                        <input class="form-control" name ="specialite" id ="specialite" minlength="2" required>
+                                    </div>
+
+
+                                    <div class="form-group col-md-6">
+                                        <label>Type de Contact :</label>
+                                        <select class="form-control" name ="type" id ="type" >
+                                            <option>Pharmacie</option>
+                                            <option>Laboratoire</option>
+                                            <option>Radiologue</option>
+                                            <option>Hôpital/Clinique</option>
+                                            <option>Confrère</option>
+                                        </select>
+                                    </div>
+
+
+                                    <div class="form-group col-md-6">
+                                        <label>site Web de Contact :</label>
+                                        <input class="form-control" name ="web" id ="web"  required>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label>Adresse E-mail de Contact :</label>
+                                        <input class="form-control" name ="email" id ="email"  required>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label>Pays :</label>
+                                        <div id="countries_states2" data-name="country" class="bfh-selectbox bfh-countries" data-country="TN" data-flags="true"></div>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label>Ville de Contact :</label>
+                                        <input class="form-control" name ="ville" id ="ville"  required>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label>Téléphone Fix 1 de Contact :</label>
+                                        <input class="form-control" name ="tel" id ="tel"  required>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label>Téléphone Fix 2 de Contact :</label>
+                                        <input class="form-control" name ="tel2" id ="tel2"  required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Téléphone Fax de Contact :</label>
+                                        <input class="form-control" name ="fax" id ="fax"  required>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default col-md-6">
+                                <div class="panel-heading"></div>
+                                <div class="panel-body">
+                                    <div class="form-group ">
+                                        <label>Adresse De Contact :</label>
+                                        <textarea class="form-control" name ="adress" id ="adress"  required></textarea>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="panel panel-default col-md-6">
+                                <div class="panel-heading"></div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label>Localisation Du Contact :</label>
+                                        <textarea class="form-control" name ="localisation" id ="localisation"  required></textarea>
+                                    </div>
+
+                                </div>
+                                <div class="panel panel-default col-md-6">
+                                    <div class="panel-heading"></div>
+                                    <div class="panel-body">
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary">ajouter un Patient</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div><!-- /.col-->
+        </div>
+    </div>
+
+{% endblock %}
+{% block javascript %}
+    <script src="{{ asset('templates/js/jquery.validate.min.js') }}"></script>
+
+
+{% endblock %}

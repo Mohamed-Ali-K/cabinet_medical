@@ -1,0 +1,179 @@
+{% extends 'base.html.twig' %}
+{% block stylesheet %}
+    <link href="{{ asset('templates/css/bootstrap-table.css') }}" rel="stylesheet">
+{% endblock %}
+    {% block body %}
+        <div class="row">
+            <ol class="breadcrumb">
+                <li><a href="#">
+                        <svg class="glyph stroked home">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#stroked-home"></use>
+                        </svg>
+                    </a></li>
+                <li class="active">Icons</li>
+            </ol>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Paramateur Cabinet de Dr.{{ cabinets.nomDocteur }}</h1>
+            </div>
+        </div>
+        {% for message in app.flashes('notice') %}
+            <div class="alert bg-success" role="alert">
+                <svg class="glyph stroked checkmark">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#stroked-checkmark"></use>
+                </svg>{{ message }}<a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+            </div>
+        {% endfor %}
+        <div class="panel panel-default ">
+            <div class="panel-heading">
+                <a data-toggle="collapse" href="#collapse1"><h3 class=" text-center "><strong>Liste des Cas</strong>
+                    </h3></a>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <div class="panel panel-info ">
+                        <div class="panel-heading"></div>
+                        <div class="panel-body">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Ajouter Un Cas
+                            </button>
+
+                            <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                                <div class="modal-dialog modal-sm" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                                        aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="gridSystemModalLabel">Ajouter un Cas</h4>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+
+                                                <div class="panel-body">
+                                                    <form role="form" method="post" action="{{ path('Cas_new') }}">
+
+
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-body">
+
+                                                                <div class="form-group ">
+                                                                    <label>Nom du Cas :</label>
+                                                                    <div class='input-group ' >
+
+                                                                        <input class="form-control"  name="nomCas" id="nomCas" required>
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label>Type de Examaen :</label>
+                                                                    <div class="input-group">
+
+                                                                        <textarea class="form-control" name="examenType" id="examenType" placeholder="" required></textarea>
+
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <button type="submit" class="btn-lg btn-primary">Ajouter</button>
+                                                                </div>
+
+                                                            </div>
+
+
+                                                        </div>
+
+
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+                    <div class="bootstrap-table clearfix ">
+                        <div class="table-container clearfix">
+                            <div class="table-header clearfix">
+                                <table></table>
+                            </div>
+                            <div class="table-body clearfix">
+                                <div class="table-loading clearfix" style="top: 37px; display: none;">Loading, please wait…
+                                </div>
+                                <table data-toggle="table" data-show-refresh="true"
+                                       data-show-toggle="true" data-show-columns="true" data-search="true"
+                                       data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name"
+                                       data-sort-order="desc" class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>Gérer le Cas</th>
+                                        <th>Cas ID</th>
+                                        <th>Nom de Cas</th>
+                                        <th>Typp de Examaen</th>
+
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for ca in cas %}
+                                        <tr>
+                                            <td>
+                                                <div class="btn-group dropdown">
+                                                    <button type="button" class="btn btn-primary">Gére</button>
+                                                    <button type="button" class="btn btn-default dropdown-toggle"
+                                                            data-toggle="dropdown">
+                                                        <span class="caret"></span>
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="/Cas/details/{{ ca.id }}">View </a></li>
+                                                        <li><a href="/Cas/edit/{{ ca.id }}">Edit </a>
+                                                        </li>
+                                                        <li><a href="/Cas/delete/{{ ca.id }}">Delete </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                            <td>{{ ca.id }}</td>
+                                            <td>{{ ca.nomCas }}</td>
+                                            <td>{{ ca.examenType }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default ">
+            <div class="panel-heading">
+                <a data-toggle="collapse" href="#collapse1"><h3 class=" text-center "><strong>Liste des Cas</strong>
+                    </h3></a>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+                <div class="panel-body">
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+    {% block javascript %}
+        <script src="{{ asset('templates/js/bootstrap-table.js') }}"></script>
+    {% endblock %}

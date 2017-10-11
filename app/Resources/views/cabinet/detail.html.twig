@@ -24,7 +24,8 @@
     <div class="panel-heading">
 
         <a data-toggle="collapse" href="#collapse1"><h3 class=" text-center ">Cabinet de
-                <strong>Dr. {{ Cabinets.nomDocteur }}</strong></h3></a></div>
+                <strong>Dr. {{ Cabinets.nomDocteur }}</strong></h3></a>
+    </div>
     <div id="collapse1" class="panel-collapse collapse">
         <div class="panel-body">
 
@@ -212,6 +213,10 @@
 
         </div>
     </div>
+    <div class="panel-heading">
+
+        <a  href="{{ path('EditCabinet') }}"><h3 class=" text-center ">Modifier les détails du Cabinet
+               </h3></a></div>
 </div>
 
 {% endblock %}

@@ -15,7 +15,7 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Cabinet de Dr.{{ Cabinets.nomDocteur }}</h1>
+                <h1 class="page-header">Cabinet de Dr.{{ cabinets.nomDocteur }}</h1>
             </div>
         </div>
         {% for message in app.flashes('notice') %}
@@ -25,17 +25,17 @@
                 </svg>{{ message }}<a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
             </div>
         {% endfor %}
-        <div class="panel panel-default">
+        <div class="panel panel-default ">
             <div class="panel-heading">Liste de Patients</div>
             <div class="panel-body">
                 <a href="{{ path('addPatient') }}" class="btn btn-primary btn-lg active" role="button"
                    aria-pressed="true">Ajouter un Patient</a>
-                <div class="bootstrap-table">
-                    <div class="table-container">
-                        <div class="table-header">
+                <div class="bootstrap-table clearfix">
+                    <div class="table-container clearfix">
+                        <div class="table-header clearfix">
                             <table></table>
                         </div>
-                        <div class="table-body">
+                        <div class="table-body clearfix">
                             <div class="table-loading" style="top: 37px; display: none;">Loading, please wait…
                             </div>
                             <table data-toggle="table" data-show-refresh="true"
@@ -66,7 +66,7 @@
                                 {% for patient in Patients %}
                                     <tr>
                                         <td>
-                                            <div class="btn-group dropup">
+                                            <div class="btn-group dropdown">
                                                 <button type="button" class="btn btn-primary">Gére</button>
                                                 <button type="button" class="btn btn-default dropdown-toggle"
                                                         data-toggle="dropdown">

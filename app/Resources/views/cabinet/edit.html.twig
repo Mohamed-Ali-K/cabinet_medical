@@ -1,0 +1,203 @@
+{% extends 'base.html.twig' %}
+{% block stylesheet %}
+{% endblock %}
+{% block body %}
+    <div class="row">
+        <ol class="breadcrumb">
+            <li><a href="#">
+                    <svg class="glyph stroked home">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#stroked-home"></use>
+                    </svg>
+                </a></li>
+            <li class="active">Icons</li>
+        </ol>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">edit une Cabinet</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+
+                    <div class="col-md-12">
+
+                        <form role="form" method="post" action="{{ path('Cabinet_edit') }}">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+
+                                    <div class="form-group col-md-6">
+                                        <label>Nom Docteur :</label>
+                                        <input value="{{ Cabinets.nomDocteur }}" class="form-control" name ="nomDocteur" id ="nomDocteur" minlength="2" required >
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label>Spécialité :</label>
+                                        <input value="{{ Cabinets.specialite }}" class="form-control" name ="specialite" id ="specialite" minlength="2" required>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label>Debut Exercice :</label>
+                                        <div class="input-group date " data-provide="datepicker">
+                                            <input value="{{ Cabinets.debutExercice|date('Y-m-d') }}" class="form-control" type="text" name ="debutExercice" id ="debutExercice" required >
+                                            <div class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group col-md-6">
+                                        <label>Fin Exercice :</label>
+                                        <div class="input-group date " data-provide="datepicker">
+                                            <input  value="{{ Cabinets.finExercice|date('Y-m-d') }}" class="form-control"  name ="finExercice" id ="finExercice" type="text" required>
+                                            <div class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label>Début Période :</label>
+                                        <div class="input-group date "  data-provide="datepicker">
+                                            <input  value="{{ Cabinets.debutPeriode|date('Y-m-d') }}" class="form-control" name ="debutPeriode" id ="debutPeriode" type="text" required>
+                                            <div class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label>Fin Période :</label>
+                                        <div class="input-group date " data-provide="datepicker">
+                                            <input value="{{ Cabinets.finPeriode|date('Y-m-d') }}" class="form-control"  name ="finPeriode" id ="finPeriode" type="text" required>
+                                            <div class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label>Code CNAM :</label>
+                                        <input value="{{ Cabinets.codeCnam }}" class="form-control" name ="codeCnam" id ="codeCnam" placeholder="Placeholder" required>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label>Register De Commerce :</label>
+                                        <input value="{{ Cabinets.registreDeCommerce }}" class="form-control" name ="registreDeCommerce" id ="registreDeCommerce" placeholder="Placeholder" required>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label>Code TVA :</label>
+                                        <input value="{{ Cabinets.codeTVA }}" class="form-control" name ="codeTVA" id ="codeTVA" placeholder="Placeholder" required>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label>Devise :</label>
+                                        <div class="bfh-selectbox bfh-currencies" data-name="devise" data-currency="TND" data-flags="true"></div>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label>Unite :</label>
+                                        <input value="{{ Cabinets.unite }}" class="form-control" name ="unite" id ="unite" placeholder="Placeholder" required>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label>Nb Décimal :</label>
+                                        <input value="{{ Cabinets.nmbDecimal }}" class="form-control" name ="nmbDecimal" id ="nmbDecimal" placeholder="Placeholder" required>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label>Nomber de Jour avant l'échance des Cheques de traite entrant :</label>
+                                        <input value="{{ Cabinets.nmbJourAvnEchChequeEntrant }}" class="form-control" name ="nmbJourAvnEchChequeEntrant" id ="nmbJourAvnEchChequeEntrant" placeholder="Placeholder" required>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label>Nomber de Jour avant l'échance des Cheques de traite sortant :</label>
+                                        <input value="{{ Cabinets.nmbJourAvnEchChequeSortnat }}" class="form-control" name ="nmbJourAvnEchChequeSortnat" id ="nmbJourAvnEchChequeSortnat" placeholder="Placeholder" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default col-md-6">
+                                <div class="panel-heading">Adresse :</div>
+                                <div class="panel-body">
+                                    <div class="form-group ">
+                                        <label>Adresse :</label>
+                                        <input value="{{ Cabinets.adresse }}" class="form-control" name ="adresse" id ="adresse" placeholder="Placeholder" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Pays :</label>
+                                        <div id="countries_states2" data-name="country" class="bfh-selectbox bfh-countries" data-country="TN" data-flags="true"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Fax :</label>
+                                        <input value="{{ Cabinets.fax }}" class="form-control" name ="fax" id ="fax" placeholder="Placeholder" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Email :</label>
+                                        <input value="{{ Cabinets.email }}" class="form-control" name ="email" id ="email" placeholder="Placeholder" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Site Web :</label>
+                                        <input value="{{ Cabinets.web }}" class="form-control" name ="web" id ="web" placeholder="Placeholder" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Telephone :</label>
+                                        <input value="{{ Cabinets.tel }}" class="form-control" name ="tel" id ="tel" placeholder="Placeholder" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Ind Telephone :</label>
+                                        <input value="{{ Cabinets.indTel }}" class="form-control" name ="indTel" id ="indTel" placeholder="Placeholder" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default col-md-6">
+                                <div class="panel-heading">Banque :</div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label>Banque :</label>
+                                        <input value="{{ Cabinets.banque }}" class="form-control" name ="banque" id ="banque" placeholder="Placeholder" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Nom de Portaire :</label>
+                                        <input value="{{ Cabinets.nomDePortaire }}" class="form-control" name ="nomDePortaire" id ="nomDePortaire" placeholder="Placeholder" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>RIP :</label>
+                                        <input value="{{ Cabinets.rIP }}" class="form-control" name ="rIP" id ="rIP" placeholder="Placeholder" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default col-md-6">
+                                <div class="panel-heading"></div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">ajouter cabinet</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div><!-- /.col-->
+        </div>
+    </div>
+
+{% endblock %}
+{% block javascript %}
+    <script src="{{ asset('templates/js/jquery.validate.min.js') }}"></script>
+
+
+{% endblock %}

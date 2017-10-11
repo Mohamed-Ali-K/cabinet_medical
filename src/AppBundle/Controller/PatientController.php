@@ -30,15 +30,16 @@ class PatientController extends Controller
      */
     public function listAction(Request $request){
 
+        $user = $this->getUser()->getId();
+        $cabinets = $this->getDoctrine()
+            ->getRepository('AppBundle:Cabinet')
+            ->findOneBy(array('user_id' => $user));
         $Patients = $this->getDoctrine()
             ->getRepository('AppBundle:Patient')
-            ->findBy(array ('cabinet' => 2),array('id' => 'ASC'));
+            ->findBy(array ('cabinet' => $cabinets),array('id' => 'ASC'));
 
-        $Cabinets = $this->getDoctrine()
-            ->getRepository('AppBundle:Cabinet')
-            ->find(2);
         return $this->render(':cabinet/Patient:index.html.twig', array(
-            'Patients' => $Patients,'Cabinets' => $Cabinets
+            'Patients' => $Patients,'cabinets' => $cabinets
 
         ));
     }
@@ -60,9 +61,10 @@ class PatientController extends Controller
      */
     public function addAction(Request $request)
     {
-        $Cabinets = $this->getDoctrine()
+        $user = $this->getUser()->getId();
+        $cabinets = $this->getDoctrine()
             ->getRepository('AppBundle:Cabinet')
-            ->find(2);
+            ->findOneBy(array('user_id' => $user));
         $Patient = new Patient();
 
         $name = $request->get('name');
@@ -93,7 +95,7 @@ class PatientController extends Controller
         $Patient->setTelFix($telFix);
         $Patient->setAdresse($adresse);
         $Patient->setRemarques($remarques);
-        $Patient->setCabinet($Cabinets);
+        $Patient->setCabinet($cabinets);
 
         $em= $this->getDoctrine()->getManager();
         $em->persist($Patient);
